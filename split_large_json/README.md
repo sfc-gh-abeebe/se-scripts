@@ -11,6 +11,7 @@ This folder contains the following scripts:
 ```
 put file:///Users/abeebe/Downloads/GitHub/se-scripts/split_large_json/json-simple-1.1.1.jar @~/stage/ auto_compress=false;
 ```
+1. Update the `imports` line in the function to point to the stage where the parsing file was loaded
 2. Create the function using the code in the `split_json.sql` file
 3. Execute the function using the following SQL
 
