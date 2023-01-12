@@ -16,12 +16,12 @@ put file:///Users/abeebe/Downloads/GitHub/se-scripts/split_large_json/json-simpl
 3. Execute the function using the following SQL
 
 ```
--- Update the first parameter to point to the location of your JSON
+The function `StripInnerArray` takes two arguments. The first will be the location of the file (including stage reference). The second is the parent element of the JSON object to start parsing at.
+
+```
 select OBJECT_INSERT(root, 'orders', node)
 from table(StripInnerArray('@~/staged/my_large_json_file.json','orders'));
 ```
-
-The function `StripInnerArray` takes two arguments. The first will be the location of the file (including stage reference). The second is the parent element of the JSON object to start parsing at.
 
 For example, say we have a JSON object like the following:
 ```
@@ -50,7 +50,7 @@ We want to flatten the nested objects in the "orders" object to show one order p
 If we call the function, as demonstrated above, the result will be:
 
 ```
-{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2023-01-12",     "productSKU": 999   } },
-{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2023-01-04",     "productSKU": 254   } },
-{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2022-12-27",     "productSKU": 123   } },
+{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2023-01-12",     "productSKU": 999   } }
+{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2023-01-04",     "productSKU": 254   } }
+{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2022-12-27",     "productSKU": 123   } }
 ```
