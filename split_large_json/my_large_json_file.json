@@ -1,0 +1,19 @@
+{
+    "firstName": "Amber",
+    "lastName": "Beebe",
+    "email": "amber.beebe@snowflake.com",
+    "orders": {
+        "1000": {
+            "productSKU": 123,
+            "orderDate": "2022-12-27"
+        },
+        "1001": {
+            "productSKU": 254,
+            "orderDate": "2023-01-04"
+        },
+        "1002": {
+            "productSKU": 999,
+            "orderDate": "2023-01-12"
+        }
+    }   
+}
