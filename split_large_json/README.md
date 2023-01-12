@@ -45,12 +45,12 @@ For example, say we have a JSON object like the following:
     }   
 }
 ```
-We want to flatten the nested objects in the "orders" object to show one order per row, however the file `my_large_json_file.json` is larger than 16MB and Snowflake will not allow us to transform in flight or ingest.
+We want to flatten the nested objects in the "orders" object to show one order per row, however the file `my_large_json_file.json` is larger than 16MB and Snowflake will not allow us to transform in flight or during ingest.
 
 If we call the function, as demonstrated above, the result will be:
 
 ```
-{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2023-01-12",     "productSKU": 999   } }
-{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2023-01-04",     "productSKU": 254   } }
-{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2022-12-27",     "productSKU": 123   } }
+{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2023-01-12",     "productSKU": 999   } },
+{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2023-01-04",     "productSKU": 254   } },
+{   "email": "amber.beebe@snowflake.com",   "firstName": "Amber",   "lastName": "Beebe",   "orders": {     "orderDate": "2022-12-27",     "productSKU": 123   } },
 ```
