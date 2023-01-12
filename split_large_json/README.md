@@ -16,6 +16,7 @@ put file:///Users/abeebe/Downloads/GitHub/se-scripts/split_large_json/json-simpl
 3. Execute the function using the following SQL
 
 ```
+-- Update the first parameter to point to the location of your JSON
 select OBJECT_INSERT(root, 'orders', node)
 from table(StripInnerArray('@~/staged/my_large_json_file.json','orders'));
 ```
@@ -24,7 +25,7 @@ The function `StripInnerArray` takes two arguments. The first will be the locati
 
 For example, say we have a JSON object like the following:
 ```
-obj = {
+{
     "firstName": "Amber",
     "lastName": "Beebe",
     "email": "amber.beebe@snowflake.com",

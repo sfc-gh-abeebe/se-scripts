@@ -1,7 +1,7 @@
 create or replace function StripInnerArray(Fname varchar, Node varchar)                           
 returns table(root variant, node variant)                                                             
-language java                                                                
-imports = ('@~/staged/json-simple-1.1.1.jar')
+language java                   
+imports = ('@~/staged/json-simple-1.1.1.jar') -- Update this line to point to the location of the simple file
 handler='StripInnerArray'                                                 
 target_path='@~/staged/StripInnerArray.jar'                                                                
 as                                                                  
@@ -57,8 +57,3 @@ $$
         }
     }
 $$;
-
-// call the function and build the final variant object
-// you could leave the OBJECT_INSERT call out entirely
-select OBJECT_INSERT(root, 'ros', node)
-from table(StripInnerArray('@~/staged/my_large_json_file.json','key_values'));
