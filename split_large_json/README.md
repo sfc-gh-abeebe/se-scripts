@@ -15,7 +15,6 @@ put file:///Users/abeebe/Downloads/GitHub/se-scripts/split_large_json/json-simpl
 2. Create the function using the code in the `split_json.sql` file
 3. Execute the function using the following SQL
 
-```
 The function `StripInnerArray` takes two arguments. The first will be the location of the file (including stage reference). The second is the parent element of the JSON object to start parsing at.
 
 ```
